@@ -1,0 +1,44 @@
+[package]
+name = "three-body-game"
+version = "0.1.0"
+edition = "2021"
+
+[profile.release]
+lto = true
+codegen-units = 1
+strip = true
+
+[dependencies]
+cfg-if = "1.0.0"
+clap = { version = "4.5.4", features = [
+    "env", "unicode",
+    "derive",
+    "error-context", "string",
+    "suggestions", "wrap_help", "usage", "help"
+], optional = true }
+color-eyre = { version = "0.6.3", features = ["issue-url", "track-caller", "color-spantrace"], optional = true }
+serde = { version = "1.0.197", features = [
+    "derive", "alloc", "rc", "std", "serde_derive"
+] }
+toml = "0.8.12"
+ratatui = { version = "0.26.1", features = [
+    "serde",
+    "all-widgets",
+    "crossterm",
+    "macros",
+    "underline-color"
+], optional = true }
+crossterm = { version = "0.27.0", features = [
+    "bracketed-paste",
+    "event-stream", "events",
+    "serde", "windows"
+], optional = true }
+macroquad = { version = "0.4.5", features = ["audio"], optional = true }
+chrono = "0.4.38"
+lazy_static = "1.4.0"
+anyhow = { version = "1.0.82", features = ["backtrace"] }
+
+[features]
+default = ["gui-macroquad", "clap"]
+tui = ["crossterm", "ratatui"]
+gui-macroquad = ["macroquad"]

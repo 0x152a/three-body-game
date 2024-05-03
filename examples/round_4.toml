@@ -1,0 +1,22 @@
+delta = 0.001
+radius_factor = 10.0
+
+[[bodies]]
+pos = [0, 1, 0]
+speed = [-1, 0, 0]
+mass = 1.04481549985497
+
+[[bodies]]
+pos = [0, -1, 0]
+speed = [1, 0, 0]
+mass = 1.04481549985497
+
+[[bodies]]
+pos = [-1, 0, 0]
+speed = [0, -1, 0]
+mass = 1.04481549985497
+
+[[bodies]]
+pos = [1, 0, 0]
+speed = [0, 1, 0]
+mass = 1.04481549985497
